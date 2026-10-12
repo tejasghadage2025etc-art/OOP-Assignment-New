@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+class BasicInfo
+{
+private:
+string name;
+int age;
+public:
+void acceptBasicInfo()
+{
+cout<<"Enter name: ";
+cin>>name;
+cout<<"Enter age: ";
+cin>>age;
+}
+void dispBasicInfo()
+{
+cout<<"Name: "<<name<<endl;
+cout<<"Age: "<<age<<endl;
+}
+};
+class deptInfo
+{
+private:
+string nameofdept;
+string natureofwork;
+public:
+void acceptDeptInfo()
+{
+cout<<"Enter department: ";
+cin>>nameofdept;
+cout<<"Enter nature of work: ";
+cin>>natureofwork;
+}
+void dispDeptInfo()
+{
+cout<<"Department: "<<nameofdept<<endl;
+cout<<"Nature of work: "<<natureofwork<<endl;
+}
+};
+class employee:public BasicInfo,public deptInfo
+{
+public:
+void acceptemployeeInfo()
+{
+acceptBasicInfo();
+acceptDeptInfo();
+}
+void dispemployeeInfo()
+{
+dispBasicInfo();
+dispDeptInfo();
+}
+};
+int main()
+{
+employee e1,e2;
+e1.acceptemployeeInfo();
+e1.dispemployeeInfo();
+e2.acceptemployeeInfo();
+e2.dispemployeeInfo();
+return 0;
+}
