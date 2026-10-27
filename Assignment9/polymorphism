@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Shape
+{
+public:
+    // Virtual function to calculate area
+    virtual void area()
+    {
+        cout << "Area of Shape" << endl;
+    }
+};
+
+// Circle class inherits Shape
+class Circle : public Shape
+{
+public:
+    // Redefining the area function for Circle
+    void area() override
+    {
+        float r = 5; // Radius of circle
+        cout << "Area of Circle = " << 3.14 * r * r << endl;
+    }
+};
+
+// Rectangle class inherits Shape
+class Rectangle : public Shape
+{
+public:
+    // Redefining the area function for Rectangle
+    void area() override
+    {
+        int l = 10, b = 5; // Length and breadth
+        cout << "Area of Rectangle = " << l * b << endl;
+    }
+};
+
+int main()
+{
+    Shape *ptr; // Base class pointer
+
+    Circle c;      // Creating Circle object
+    Rectangle r;   // Creating Rectangle object
+
+    ptr = &c;      // Pointer stores address of Circle object
+    ptr->area();   // Calls Circle's area function
+
+    ptr = &r;      // Pointer stores address of Rectangle object
+    ptr->area();   // Calls Rectangle's area function
+
+    return 0; // Program ends
+}
