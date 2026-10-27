@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+// First namespace
+namespace p1
+{
+    // Function to add two integers
+    int add(int m, int n)
+    {
+        return m + n; // Returns the sum
+    }
+}
+
+// Second namespace
+namespace p2
+{
+    // Function to add two decimal numbers
+    double add(double m, double n)
+    {
+        return m + n; // Returns the sum
+    }
+}
+
+int main()
+{
+    // Calling add function from namespace p1
+    cout << "Addition = " << p1::add(10, 20) << endl;
+
+    // Calling add function from namespace p2
+    cout << "Addition = " << p2::add(20.5, 10.3) << endl;
+
+    return 0; // End of program
+}
