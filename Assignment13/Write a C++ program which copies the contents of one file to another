@@ -1,0 +1,67 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    ifstream fs;  // Used to read from the source file
+    ofstream ft;  // Used to write into the destination file
+
+    string str;   // Stores each line of text
+    char sourcefile[50], destinationfile[50];
+
+    // Ask for the source file name
+    cout << "Enter Source File with Extension: ";
+    cin.getline(sourcefile, 50);
+
+    // Open the source file
+    fs.open(sourcefile);
+
+    // Check if the source file opened successfully
+    if (!fs)
+    {
+        cout << "Error in Opening Source File...!!!";
+        return 1;
+    }
+
+    // Ask for the destination file name
+    cout << "Enter Destination File with Extension: ";
+    cin.getline(destinationfile, 50);
+
+    // Open the destination file
+    ft.open(destinationfile);
+
+    // Check if the destination file opened successfully
+    if (!ft)
+    {
+        cout << "Error in Opening Destination File...!!!";
+        fs.close();
+        return 2;
+    }
+
+    // Copy data if both files are open
+    if (fs && ft)
+    {
+        // Read the source file line by line
+        while (getline(fs, str))
+        {
+            ft << str << "\n"; // Write each line to destination file
+        }
+
+        cout << "\n\nSource File Data Successfully Copied "
+             << "to Destination File...!!!";
+    }
+    else
+    {
+        cout << "File Cannot Open...!!!";
+    }
+
+    // Display a message to check the copied data
+    cout << "\n\nOpen Destination File and Check!!!\n";
+
+    // Close both files
+    fs.close();
+    ft.close();
+
+    return 0; // End of program
+}
